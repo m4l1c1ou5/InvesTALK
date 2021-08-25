@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IntersTALK</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="/js/chat.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
+    <script id="message-template" type="text/html">
+        <article class="message is-primary">
+            <div class="message-header">
+              <p>{{name}}</p>     <p>{{time}}</p>
+            </div>
+            <div class="message-body">
+                {{message}}
+            </div>
+          </article>
+    </script>
+
+    <script id="location-template" type="text/html">
+        <article class="message is-primary">
+            <div class="message-header">
+              <p>{{name}}</p>     <p>{{time}}</p>
+            </div>
+            <div class="message-body">
+                <a href="{{location}}" target="_blank">MY LOCATION</a>
+            </div>
+          </article>
+    </script>
+</head>
+<body>
+    <a href="/">
+    <div class="box" style="background-color:coral">
+        <center><p class="title is-1" style="color:cyan">IntersTALK</p></center> 
+    </div>
+    </a>
+    <div class="columns is-mobile">
+        <div class="column is-half is-offset-one-quarter ">
+            <div class="field">
+                <div class="box">
+                    <div id="messages"></div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="field">
+                    <form id="chat">
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                <input class="input is-primary is-medium is-rounded" name="msg" type="text" placeholder="Enter Message">
+                            </div>
+                            <div class="control">
+                            <button type="submit" CLASS="button is-info is-medium is-rounded">Send</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="field">
+                    <center>
+                        <button id="sendlocation" class="button is-warning is-rounded is-large">Send Location</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
